@@ -10,7 +10,7 @@ const NotFound = ({ route: { title }, staticContext = {} }) => {
   return (
     <Layout title={title} className='not__found__container' needLogin={false}>
       <div className='text-center'>
-        <h1>404</h1>
+        <h1>404 :(</h1>
         <p>The page you&apos;re looking for isn&apos;t here.</p>
       </div>
     </Layout>

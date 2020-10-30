@@ -90,7 +90,7 @@ export type ApiActionType = {
   onError?: (data: ApiDataType) => void | Promise<void>,
 } & RequestType;
 
-export type ThemeType = 'light' | 'dark';
+export type ThemeType = 'dark' | 'light' ;
 
 export type GlobalStateType = {
   loading?: boolean,

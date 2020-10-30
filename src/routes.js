@@ -10,7 +10,7 @@ import {
 import CreatePost from 'pages/Post/CreatePost';
 import Introduce from 'pages/Introduce';
 import Projects from 'pages/Introduce/Projects';
-import Contact from 'pages/Contact';
+import Intro from 'pages/Intro';
 import Contact from 'pages/Contact';
 import NotFound from 'pages/NotFound';
 import App from './client/app';
@@ -21,6 +21,12 @@ export default [
     routes: [
       {
         path: '/',
+        exact: true,
+        component: Intro,
+        title: 'Intro',
+      },
+      {
+        path: '/post',
         exact: true,
         component: Post,
         title: 'Post',
