@@ -2,6 +2,7 @@ import Login from 'pages/Login';
 import Register from 'pages/Register';
 import Post from 'pages/Post';
 import { getPostsAction } from 'pages/Post/action';
+import { getExchangeRatesAction } from 'pages/Intro/action';
 import PostDetail from 'pages/Post/PostDetail';
 import {
   getPostDetailAction,
@@ -24,6 +25,7 @@ export default [
         exact: true,
         component: Intro,
         title: 'Intro',
+        loadData: ({ _params }) => [getExchangeRatesAction()],
       },
       {
         path: '/post',

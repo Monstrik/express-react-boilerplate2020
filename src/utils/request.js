@@ -20,14 +20,15 @@ const getBaseUrl = () => {
 const baseUrl = getBaseUrl();
 
 export const request = async ({
-  host = baseUrl,
-  url = '',
-  method,
-  params = {},
-  data = {},
-  headers = {},
-  token,
-}: RequestType) => {
+                                host = baseUrl,
+                                url = '',
+                                method,
+                                params = {},
+                                data = {},
+                                headers = {},
+                                token,
+                              }: RequestType) => {
+
   const authorization = token || cookies.get('accessToken');
 
   let config = {
@@ -45,9 +46,11 @@ export const request = async ({
   if (method === 'GET' || method === 'DELETE') {
     config = omit(config, ['data']);
   }
+  const fullUrl = url.indexOf('http') >= 0 ? url : host + url;
 
   const result = await axios({
-    url: `${host}${url}`,
+    // url: `${host}${url}`,
+    url: fullUrl,
     ...config,
   });
 
