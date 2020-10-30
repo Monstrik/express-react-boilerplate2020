@@ -22,10 +22,7 @@ const aggregateLookupUser = [
 ];
 
 export const getPostsController = () => async (req: Request, res: Response) => {
-  const {
-    postsCollection,
-    query: { skip = 0 },
-  } = req;
+  const { postsCollection, query: { skip = 0 } } = req;
 
   try {
     const { values: posts, metaData } = await usePaging({
