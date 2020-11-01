@@ -141,6 +141,11 @@ const Child = ({
                       </NavLink>
                     </li>
                     <li className='nav-item'>
+                    <NavLink className='nav-link sidebar__item' to='/ws' >
+                      Web Socket
+                    </NavLink>
+                  </li>
+                    <li className='nav-item'>
                       <NavLink className='nav-link sidebar__item' to='/contact'>
                         Contact
                       </NavLink>
