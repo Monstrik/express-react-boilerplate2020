@@ -12,6 +12,7 @@ import CreatePost from 'pages/Post/CreatePost';
 import Introduce from 'pages/Introduce';
 import Projects from 'pages/Introduce/Projects';
 import Intro from 'pages/Intro';
+import WebSocket from 'pages/WS';
 import Contact from 'pages/Contact';
 import NotFound from 'pages/NotFound';
 import App from './client/app';
@@ -26,6 +27,12 @@ export default [
         component: Intro,
         title: 'Intro',
         loadData: ({ _params }) => [getExchangeRatesAction()],
+      },
+      {
+        path: '/ws',
+        exact: true,
+        component: WebSocket,
+        title: 'WebSocket',
       },
       {
         path: '/post',
