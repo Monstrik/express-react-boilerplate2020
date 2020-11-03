@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
+import { toast } from 'react-toastify';
 
 import Layout from 'components/Layout';
 import MdViewer from 'components/MdViewer';
-import { connect } from 'react-redux';
 import Shelf from 'components/Shelf';
 import Kitchen from '../../lib/kitchen';
-import { number } from 'prop-types';
 
 class KitchenPage extends Component<{ route: any }> {
 
@@ -21,15 +20,19 @@ class KitchenPage extends Component<{ route: any }> {
       },
     };
     this.ordersGenerator = null;
+    console.clear();
   }
 
   start() {
+    console.clear();
     console.log('START');
+    toast.info('START');
     this.ordersGenerator = setInterval(() => this.getNextOrders(), 1000);
   }
 
   stop() {
     console.log('STOP');
+    toast.info('STOP');
     clearInterval(this.ordersGenerator);
   }
 
@@ -41,15 +44,15 @@ class KitchenPage extends Component<{ route: any }> {
       <MdViewer source={`## ${title} `}/>
 
       <button onClick={() => this.start()}>Start</button>
-      <input type={'number'} value={ordersPerSecond}
+      <input type={'number'} value={ordersPerSecond} style={{ width: 40 }}
              onChange={(e) => this.setState({ ordersPerSecond: e.target.value })}/>
       <button onClick={() => this.stop()}>Stop</button>
+      <br/>See console for logs, refresh to reinitialize orders.
       {shelf && <div>
         <Shelf name={'Hot'} color={'red'} data={shelf.hot} shelfDecayModifier={1}/>
         <Shelf name={'Cold'} color={'green'} data={shelf.cold} shelfDecayModifier={1}/>
         <Shelf name={'Frozen'} color={'blue'} data={shelf.frozen} shelfDecayModifier={1}/>
         <Shelf name={'Overflow'} color={'orange'} data={shelf.overflow} shelfDecayModifier={2}/>
-
       </div>}
 
     </Layout>;
@@ -58,8 +61,8 @@ class KitchenPage extends Component<{ route: any }> {
 
   getNextOrders() {
     const { shelf, ordersPerSecond } = this.state;
-    const orders = Kitchen.getNextOrders(ordersPerSecond);
-
+    const orders = Kitchen.getNextOrders(ordersPerSecond * 1);
+    if (orders.length === 0) this.stop();
     orders.forEach(order => {
       let assigned = false;
       const newOrder = {
@@ -92,7 +95,9 @@ class KitchenPage extends Component<{ route: any }> {
         if (shelf.overflow.length < 15) {
           shelf.overflow.push(newOrder);
         } else {
-          // TODO: assign somewhere
+          const logStr = `Wasted ${order.name}`;
+          console.log(logStr);
+          toast.warn(logStr);
         }
       }
       console.log('New order ready for delivery', newOrder.name);
@@ -147,6 +152,7 @@ class KitchenPage extends Component<{ route: any }> {
     if (found && replaced) {
       this.setState({ shelf });
       console.log('Delivered: ', order.name);
+      toast.dark(`Delivered: ${ order.name}`);
     } else {
       console.error('order not found on shelf');
     }

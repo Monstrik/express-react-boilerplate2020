@@ -14,6 +14,7 @@ import Projects from 'pages/Introduce/Projects';
 import Intro from 'pages/Intro';
 import WebSocket from 'pages/WS';
 import KitchenPage from 'pages/Kitchen';
+import AboutPage from 'pages/AboutPage';
 import Contact from 'pages/Contact';
 import NotFound from 'pages/NotFound';
 import App from './client/app';
@@ -25,15 +26,20 @@ export default [
       {
         path: '/',
         exact: true,
-        component: Intro,
-        title: 'Intro',
-        loadData: ({ _params }) => [getExchangeRatesAction()],
+        component: AboutPage,
+        title: 'About',
       },
       {
         path: '/kitchen',
-        exact: true,
         component: KitchenPage,
         title: 'Kitchen',
+      },
+      {
+        path: '/intro',
+        exact: true,
+        component: Intro,
+        title: 'Intro',
+        loadData: ({ _params }) => [getExchangeRatesAction()],
       },
       {
         path: '/ws',

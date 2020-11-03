@@ -135,9 +135,10 @@ const Child = ({
 
                   <ul className='nav flex-column'>
 
+
                     <li className='nav-item'>
                       <NavLink className='nav-link sidebar__item' to='/'>
-                        Intro
+                        About
                       </NavLink>
                     </li>
                     <li className='nav-item'>
@@ -151,10 +152,17 @@ const Child = ({
                       </NavLink>
                     </li>
                     <li className='nav-item'>
-                      <NavLink className='nav-link sidebar__item' to='/contact'>
-                        Contact
+                      <NavLink className='nav-link sidebar__item' to='/intro'>
+                        Rates
                       </NavLink>
                     </li>
+
+
+                    {/*<li className='nav-item'>*/}
+                    {/*  <NavLink className='nav-link sidebar__item' to='/contact'>*/}
+                    {/*    Contact*/}
+                    {/*  </NavLink>*/}
+                    {/*</li>*/}
                     {/*  <li className='nav-item'>*/}
                     {/*    <NavLink className='nav-link sidebar__item' to='/'*/}
                     {/*             isActive={(_, { pathname: path }) => {*/}
