@@ -136,40 +136,45 @@ const Child = ({
                   <ul className='nav flex-column'>
 
                     <li className='nav-item'>
-                      <NavLink className='nav-link sidebar__item' to='/' >
+                      <NavLink className='nav-link sidebar__item' to='/'>
                         Intro
                       </NavLink>
                     </li>
                     <li className='nav-item'>
-                    <NavLink className='nav-link sidebar__item' to='/ws' >
-                      Web Socket
-                    </NavLink>
-                  </li>
+                      <NavLink className='nav-link sidebar__item' to='/kitchen'>
+                        Kitchen
+                      </NavLink>
+                    </li>
+                    <li className='nav-item'>
+                      <NavLink className='nav-link sidebar__item' to='/ws'>
+                        Web Socket
+                      </NavLink>
+                    </li>
                     <li className='nav-item'>
                       <NavLink className='nav-link sidebar__item' to='/contact'>
                         Contact
                       </NavLink>
                     </li>
-                  {/*  <li className='nav-item'>*/}
-                  {/*    <NavLink className='nav-link sidebar__item' to='/'*/}
-                  {/*             isActive={(_, { pathname: path }) => {*/}
-                  {/*               return path.match(/^\/$/) || path.match(/^\/p\//);*/}
-                  {/*             }}>*/}
-                  {/*      Posts*/}
-                  {/*    </NavLink>*/}
-                  {/*  </li>*/}
-                  {/*  /!* <li className='nav-item'>*/}
-                  {/*  <NavLink className='nav-link sidebar__item' to='/questions'>*/}
-                  {/*    Questions*/}
-                  {/*  </NavLink>*/}
-                  {/*</li> *!/*/}
-                  {/*  <li className='nav-item'>*/}
-                  {/*    <NavLink*/}
-                  {/*      className='nav-link sidebar__item'*/}
-                  {/*      to='/introduce'>*/}
-                  {/*      Introduce*/}
-                  {/*    </NavLink>*/}
-                  {/*  </li>*/}
+                    {/*  <li className='nav-item'>*/}
+                    {/*    <NavLink className='nav-link sidebar__item' to='/'*/}
+                    {/*             isActive={(_, { pathname: path }) => {*/}
+                    {/*               return path.match(/^\/$/) || path.match(/^\/p\//);*/}
+                    {/*             }}>*/}
+                    {/*      Posts*/}
+                    {/*    </NavLink>*/}
+                    {/*  </li>*/}
+                    {/*  /!* <li className='nav-item'>*/}
+                    {/*  <NavLink className='nav-link sidebar__item' to='/questions'>*/}
+                    {/*    Questions*/}
+                    {/*  </NavLink>*/}
+                    {/*</li> *!/*/}
+                    {/*  <li className='nav-item'>*/}
+                    {/*    <NavLink*/}
+                    {/*      className='nav-link sidebar__item'*/}
+                    {/*      to='/introduce'>*/}
+                    {/*      Introduce*/}
+                    {/*    </NavLink>*/}
+                    {/*  </li>*/}
 
                   </ul>
                 </div>

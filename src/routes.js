@@ -13,6 +13,7 @@ import Introduce from 'pages/Introduce';
 import Projects from 'pages/Introduce/Projects';
 import Intro from 'pages/Intro';
 import WebSocket from 'pages/WS';
+import KitchenPage from 'pages/Kitchen';
 import Contact from 'pages/Contact';
 import NotFound from 'pages/NotFound';
 import App from './client/app';
@@ -27,6 +28,12 @@ export default [
         component: Intro,
         title: 'Intro',
         loadData: ({ _params }) => [getExchangeRatesAction()],
+      },
+      {
+        path: '/kitchen',
+        exact: true,
+        component: KitchenPage,
+        title: 'Kitchen',
       },
       {
         path: '/ws',
